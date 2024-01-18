@@ -2,14 +2,15 @@ const express=require("express");
 const https=require("https");
 const app=express();
 const bodyParser=require("body-parser");
+const port=process.env.PORT||3000;
 app.use(bodyParser.urlencoded({extended:true}));
-app.listen(3000,(err)=>{
+app.listen(port,(err)=>{
 if(err)
 {
 console.log("An internal error occured");    
 return;
 }
-console.log("WeatherApp server  is listening on port 3000");
+console.log(`WeatherApp is listening on port ${port}`);
 });
 
 app.post("/",function(req,res){
